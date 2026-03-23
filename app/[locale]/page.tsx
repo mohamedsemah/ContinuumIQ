@@ -1,6 +1,4 @@
 import { setRequestLocale } from "next-intl/server";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { CrisisSection } from "@/components/sections/CrisisSection";
 import { IndustryChurnChart } from "@/components/sections/IndustryChurnChart";
@@ -20,18 +18,14 @@ export default async function HomePage({
 
   return (
     <>
-      <Navbar />
-      <main className="pt-16">
-        <HeroSection />
-        <CrisisSection />
-        <IndustryChurnChart />
-        <GapSection />
-        <PlatformSection />
-        <ValueSection />
-        <CaseStudySection />
-        <CTASection />
-      </main>
-      <Footer />
+      <HeroSection />
+      <CrisisSection />
+      <IndustryChurnChart />
+      <GapSection />
+      <PlatformSection />
+      <ValueSection />
+      <CaseStudySection />
+      <CTASection />
     </>
   );
 }

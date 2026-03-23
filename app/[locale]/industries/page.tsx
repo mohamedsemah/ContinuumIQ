@@ -1,6 +1,4 @@
 import { setRequestLocale } from "next-intl/server";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 import { IndustryChurnChart } from "@/components/sections/IndustryChurnChart";
 import { CrisisSection } from "@/components/sections/CrisisSection";
 import { ValueSection } from "@/components/sections/ValueSection";
@@ -17,15 +15,11 @@ export default async function IndustriesPage({
 
   return (
     <>
-      <Navbar />
-      <main className="pt-16">
-        <IndustriesHero />
-        <IndustryChurnChart />
-        <CrisisSection />
-        <ValueSection />
-        <CTASection />
-      </main>
-      <Footer />
+      <IndustriesHero />
+      <IndustryChurnChart />
+      <CrisisSection />
+      <ValueSection />
+      <CTASection />
     </>
   );
 }

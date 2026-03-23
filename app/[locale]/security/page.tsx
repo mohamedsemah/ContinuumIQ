@@ -1,6 +1,4 @@
 import { setRequestLocale } from "next-intl/server";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 import { SecuritySection } from "@/components/sections/SecuritySection";
 import { CTASection } from "@/components/sections/CTASection";
 
@@ -14,12 +12,8 @@ export default async function SecurityPage({
 
   return (
     <>
-      <Navbar />
-      <main className="pt-16">
-        <SecuritySection />
-        <CTASection />
-      </main>
-      <Footer />
+      <SecuritySection />
+      <CTASection />
     </>
   );
 }

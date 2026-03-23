@@ -1,6 +1,4 @@
 import { setRequestLocale } from "next-intl/server";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 import { PlatformSection } from "@/components/sections/PlatformSection";
 import { GapSection } from "@/components/sections/GapSection";
 import { CTASection } from "@/components/sections/CTASection";
@@ -16,14 +14,10 @@ export default async function PlatformPage({
 
   return (
     <>
-      <Navbar />
-      <main className="pt-16">
-        <PlatformHero />
-        <PlatformSection />
-        <GapSection />
-        <CTASection />
-      </main>
-      <Footer />
+      <PlatformHero />
+      <PlatformSection />
+      <GapSection />
+      <CTASection />
     </>
   );
 }

@@ -1,6 +1,4 @@
 import { setRequestLocale } from "next-intl/server";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 import { ContactSection } from "@/components/sections/ContactSection";
 
 export default async function ContactPage({
@@ -13,11 +11,7 @@ export default async function ContactPage({
 
   return (
     <>
-      <Navbar />
-      <main className="pt-16">
-        <ContactSection />
-      </main>
-      <Footer />
+      <ContactSection />
     </>
   );
 }

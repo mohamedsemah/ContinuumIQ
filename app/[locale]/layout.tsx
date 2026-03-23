@@ -9,6 +9,8 @@ import {
   JetBrains_Mono,
   IBM_Plex_Sans_Arabic,
 } from "next/font/google";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 import { cn } from "@/lib/utils";
 import "../globals.css";
 
@@ -105,7 +107,9 @@ export default async function LocaleLayout({
         )}
       >
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <Navbar />
+          <main className="pt-16">{children}</main>
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
