@@ -31,7 +31,18 @@ export function Navbar() {
   const [langOpen, setLangOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const SCROLLED_ON = 28;
+    const SCROLLED_OFF = 12;
+
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled((prev) => {
+        if (!prev && y > SCROLLED_ON) return true;
+        if (prev && y < SCROLLED_OFF) return false;
+        return prev;
+      });
+    };
+
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -60,10 +71,12 @@ export function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+          "fixed inset-x-0 top-0 z-50 border-b border-border/50",
+          "transform-gpu [backface-visibility:hidden] [will-change:transform,opacity]",
+          "transition-[background-color,box-shadow,border-color,backdrop-filter] duration-300",
           scrolled
-            ? "glass shadow-lg shadow-background/50"
-            : "bg-transparent"
+            ? "bg-surface/70 backdrop-blur-xl shadow-lg shadow-background/50 border-border"
+            : "bg-transparent backdrop-blur-0 shadow-none border-border/40"
         )}
       >
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
