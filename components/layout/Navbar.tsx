@@ -5,7 +5,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Globe, ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import { buttonVariants } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
@@ -194,12 +194,18 @@ export function Navbar() {
               </AnimatePresence>
             </div>
 
-            <Button variant="secondary" size="sm">
+            <Link
+              href="/contact"
+              className={buttonVariants({ variant: "secondary", size: "sm" })}
+            >
               {t("bookDemo")}
-            </Button>
-            <Button variant="primary" size="sm">
+            </Link>
+            <Link
+              href="/pricing"
+              className={buttonVariants({ variant: "primary", size: "sm" })}
+            >
               {t("getStarted")}
-            </Button>
+            </Link>
           </div>
 
           {/* Mobile hamburger */}
@@ -333,12 +339,18 @@ export function Navbar() {
                   </button>
                 </div>
 
-                <Button variant="secondary" size="md" className="w-full">
+                <Link
+                  href="/contact"
+                  className={buttonVariants({ variant: "secondary", size: "md", className: "w-full" })}
+                >
                   {t("bookDemo")}
-                </Button>
-                <Button variant="primary" size="md" className="w-full">
+                </Link>
+                <Link
+                  href="/pricing"
+                  className={buttonVariants({ variant: "primary", size: "md", className: "w-full" })}
+                >
                   {t("getStarted")}
-                </Button>
+                </Link>
               </div>
             </motion.div>
           </>
