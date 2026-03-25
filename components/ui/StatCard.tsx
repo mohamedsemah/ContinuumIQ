@@ -13,16 +13,59 @@ interface StatCardProps {
   className?: string;
 }
 
+function parseAnimatedValue(value: string): {
+  numericValue: number | null;
+  textSuffix: string;
+  decimalPlaces: number;
+  formatWithGrouping: boolean;
+} {
+  const match = value.match(/^([\d.,]+)(.*)$/);
+  if (!match) {
+    return { numericValue: null, textSuffix: "", decimalPlaces: 0, formatWithGrouping: false };
+  }
+
+  const rawNumber = match[1];
+  const textSuffix = match[2];
+  const commaParts = rawNumber.split(",");
+  const hasDot = rawNumber.includes(".");
+  const hasComma = rawNumber.includes(",");
+
+  if (hasDot && hasComma) {
+    const parsed = Number(rawNumber.replace(/,/g, ""));
+    return Number.isFinite(parsed)
+      ? { numericValue: parsed, textSuffix, decimalPlaces: 2, formatWithGrouping: false }
+      : { numericValue: null, textSuffix, decimalPlaces: 0, formatWithGrouping: false };
+  }
+
+  if (hasComma) {
+    const isThousandsGrouped = commaParts.length > 1 && commaParts.slice(1).every((part) => part.length === 3);
+    if (isThousandsGrouped) {
+      const parsed = Number(rawNumber.replace(/,/g, ""));
+      return Number.isFinite(parsed)
+        ? { numericValue: parsed, textSuffix, decimalPlaces: 0, formatWithGrouping: true }
+        : { numericValue: null, textSuffix, decimalPlaces: 0, formatWithGrouping: false };
+    }
+
+    // Range-like values such as 15,25% should not be numerically animated.
+    return { numericValue: null, textSuffix, decimalPlaces: 0, formatWithGrouping: false };
+  }
+
+  const parsed = Number(rawNumber);
+  if (!Number.isFinite(parsed)) {
+    return { numericValue: null, textSuffix, decimalPlaces: 0, formatWithGrouping: false };
+  }
+
+  const decimalPlaces = hasDot ? rawNumber.split(".")[1]?.length ?? 0 : 0;
+  return { numericValue: parsed, textSuffix, decimalPlaces, formatWithGrouping: false };
+}
+
 function AnimatedNumber({ value }: { value: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-40px" });
   const [mounted, setMounted] = useState(false);
   const [displayed, setDisplayed] = useState(value);
 
-  const numericMatch = value.match(/^([\d.]+)/);
-  const numericValue = numericMatch ? parseFloat(numericMatch[1]) : null;
-  const textSuffix = numericMatch ? value.slice(numericMatch[0].length) : "";
-  const hasDecimal = numericMatch ? numericMatch[1].includes(".") : false;
+  const { numericValue, textSuffix, decimalPlaces, formatWithGrouping } = parseAnimatedValue(value);
 
   const spring = useSpring(0, {
     stiffness: 50,
@@ -32,7 +75,13 @@ function AnimatedNumber({ value }: { value: string }) {
 
   const display = useTransform(spring, (current) => {
     if (numericValue === null) return value;
-    const formatted = hasDecimal ? current.toFixed(1) : Math.round(current).toString();
+    const rounded = decimalPlaces > 0 ? Number(current.toFixed(decimalPlaces)) : Math.round(current);
+    const formatted =
+      formatWithGrouping
+        ? Number(rounded).toLocaleString("en-US")
+        : decimalPlaces > 0
+          ? Number(rounded).toFixed(decimalPlaces)
+          : Number(rounded).toString();
     return formatted + textSuffix;
   });
 

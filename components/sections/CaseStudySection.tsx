@@ -10,7 +10,25 @@ const CIRCLE_RADIUS = 36;
 const CIRCUMFERENCE = 2 * Math.PI * CIRCLE_RADIUS;
 
 function asPercentNumber(value: string): number {
-  return Number(value.replace("%", ""));
+  const normalized = value.replace("%", "").replace(/،/g, ",").trim();
+
+  if (normalized.includes(".") && normalized.includes(",")) {
+    return Number(normalized.replace(/,/g, ""));
+  }
+
+  if (normalized.includes(",")) {
+    const parts = normalized.split(",").map((part) => part.trim());
+    const isThousandsGrouped = parts.length > 1 && parts.slice(1).every((part) => part.length === 3);
+    if (isThousandsGrouped) {
+      return Number(parts.join(""));
+    }
+
+    if (parts.length === 2) {
+      return Number(`${parts[0]}.${parts[1]}`);
+    }
+  }
+
+  return Number(normalized);
 }
 
 function MetricRing({
