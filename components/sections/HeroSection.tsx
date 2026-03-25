@@ -109,7 +109,7 @@ export function HeroSection() {
 
           <motion.p
             variants={fadeUp}
-            className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-text-secondary sm:text-xl"
+            className="mx-auto mt-8 max-w-3xl font-mono text-lg leading-relaxed text-text-primary sm:text-xl"
           >
             {t("positioning")}
           </motion.p>
