@@ -111,6 +111,13 @@ export function HeroSection() {
             variants={fadeUp}
             className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-text-secondary sm:text-xl"
           >
+            {t("positioning")}
+          </motion.p>
+
+          <motion.p
+            variants={fadeUp}
+            className="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-text-secondary sm:text-xl"
+          >
             {t("subtitle")}
           </motion.p>
 
