@@ -56,6 +56,8 @@ export function PricingSection() {
     {
       key: "starter",
       name: t("starter_name"),
+      price: t("starter_price"),
+      period: t("starter_period"),
       description: t("starter_desc"),
       features: [t("starter_f1"), t("starter_f2"), t("starter_f3"), t("starter_f4")],
       highlighted: false,
@@ -65,6 +67,8 @@ export function PricingSection() {
     {
       key: "growth",
       name: t("growth_name"),
+      price: t("growth_price"),
+      period: t("growth_period"),
       description: t("growth_desc"),
       features: [t("growth_f1"), t("growth_f2"), t("growth_f3"), t("growth_f4"), t("growth_f5")],
       highlighted: true,
@@ -118,20 +122,27 @@ export function PricingSection() {
                 {plan.tag ? <Badge className="shrink-0">{plan.tag}</Badge> : null}
               </div>
 
-              <div className="mt-6">
-                <Link
-                  href={`mailto:${contactEmail}?subject=${encodeURIComponent(
-                    `ContinuumIQ Pricing Inquiry - ${plan.name}`
-                  )}`}
-                  className={buttonVariants({
-                    variant: plan.highlighted ? "primary" : "secondary",
-                    size: "md",
-                    className: "w-full sm:w-auto",
-                  })}
-                >
-                  {contactCta}
-                </Link>
-              </div>
+              {plan.price ? (
+                <div className="mt-6 flex items-end gap-2">
+                  <span className="stat-number text-4xl text-text-primary sm:text-5xl">{plan.price}</span>
+                  {plan.period ? <span className="pb-1 text-sm text-text-muted">{plan.period}</span> : null}
+                </div>
+              ) : (
+                <div className="mt-6">
+                  <Link
+                    href={`mailto:${contactEmail}?subject=${encodeURIComponent(
+                      `ContinuumIQ Pricing Inquiry - ${plan.name}`
+                    )}`}
+                    className={buttonVariants({
+                      variant: plan.highlighted ? "primary" : "secondary",
+                      size: "md",
+                      className: "w-full sm:w-auto",
+                    })}
+                  >
+                    {contactCta}
+                  </Link>
+                </div>
+              )}
 
               <p className="mt-4 min-h-12 text-sm leading-relaxed text-text-secondary sm:text-base">{plan.description}</p>
 
