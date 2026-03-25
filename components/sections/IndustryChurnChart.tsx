@@ -19,11 +19,21 @@ const fadeUp = {
 } as any;
 
 function parseRateMidpoint(rate: string): number {
-  if (rate.includes("-")) {
-    const [a, b] = rate.replace("%", "").split("-").map(Number);
-    return (a + b) / 2;
+  const normalized = rate.replace("%", "").replace(/[–—-]/g, ",").replace(/،/g, ",").trim();
+  const parts = normalized
+    .split(",")
+    .map((part) => part.trim())
+    .filter(Boolean);
+
+  if (parts.length === 2) {
+    const [a, b] = parts.map(Number);
+    if (Number.isFinite(a) && Number.isFinite(b)) {
+      return (a + b) / 2;
+    }
   }
-  return Number(rate.replace("%", ""));
+
+  // Fallback for single percentages and comma thousand separators.
+  return Number(normalized.replace(/,/g, ""));
 }
 
 export function IndustryChurnChart() {
