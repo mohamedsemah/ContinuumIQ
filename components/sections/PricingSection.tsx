@@ -36,41 +36,49 @@ const cardVariants: Variants = {
 export function PricingSection() {
   const t = useTranslations("pricing");
   const [mounted, setMounted] = useState(false);
+  const [copiedPlanKey, setCopiedPlanKey] = useState<string | null>(null);
+  const contactCta = t("contact_cta");
+  const contactEmail = "info@newvisiongroupus.com";
 
   useEffect(() => setMounted(true), []);
+
+  const handleCopyEmail = async (planKey: string) => {
+    try {
+      await navigator.clipboard.writeText(contactEmail);
+      setCopiedPlanKey(planKey);
+      window.setTimeout(() => setCopiedPlanKey((current) => (current === planKey ? null : current)), 1800);
+    } catch {
+      setCopiedPlanKey(null);
+    }
+  };
 
   const plans = [
     {
       key: "starter",
       name: t("starter_name"),
-      price: t("starter_price"),
-      period: t("starter_period"),
       description: t("starter_desc"),
       features: [t("starter_f1"), t("starter_f2"), t("starter_f3"), t("starter_f4")],
       highlighted: false,
-      ctaLabel: t("cta"),
-      ctaVariant: "primary" as const,
+      ctaLabel: contactCta,
+      ctaVariant: "secondary" as const,
     },
     {
       key: "growth",
       name: t("growth_name"),
-      price: t("growth_price"),
-      period: t("growth_period"),
       description: t("growth_desc"),
       features: [t("growth_f1"), t("growth_f2"), t("growth_f3"), t("growth_f4"), t("growth_f5")],
       highlighted: true,
       tag: t("growth_tag"),
-      ctaLabel: t("cta"),
+      ctaLabel: contactCta,
       ctaVariant: "primary" as const,
     },
     {
       key: "enterprise",
       name: t("enterprise_name"),
-      price: t("enterprise_price"),
       description: t("enterprise_desc"),
       features: [t("enterprise_f1"), t("enterprise_f2"), t("enterprise_f3"), t("enterprise_f4"), t("enterprise_f5")],
       highlighted: false,
-      ctaLabel: t("enterprise_cta"),
+      ctaLabel: contactCta,
       ctaVariant: "secondary" as const,
     },
   ];
@@ -110,9 +118,19 @@ export function PricingSection() {
                 {plan.tag ? <Badge className="shrink-0">{plan.tag}</Badge> : null}
               </div>
 
-              <div className="mt-6 flex items-end gap-2">
-                <span className="stat-number text-4xl text-text-primary sm:text-5xl">{plan.price}</span>
-                {plan.period ? <span className="pb-1 text-sm text-text-muted">{plan.period}</span> : null}
+              <div className="mt-6">
+                <Link
+                  href={`mailto:${contactEmail}?subject=${encodeURIComponent(
+                    `ContinuumIQ Pricing Inquiry - ${plan.name}`
+                  )}`}
+                  className={buttonVariants({
+                    variant: plan.highlighted ? "primary" : "secondary",
+                    size: "md",
+                    className: "w-full sm:w-auto",
+                  })}
+                >
+                  {contactCta}
+                </Link>
               </div>
 
               <p className="mt-4 min-h-12 text-sm leading-relaxed text-text-secondary sm:text-base">{plan.description}</p>
@@ -130,7 +148,9 @@ export function PricingSection() {
 
               <div className="mt-8">
                 <Link
-                  href="/contact"
+                  href={`mailto:${contactEmail}?subject=${encodeURIComponent(
+                    `ContinuumIQ Pricing Inquiry - ${plan.name}`
+                  )}`}
                   className={buttonVariants({
                     variant: plan.ctaVariant,
                     size: "md",
@@ -139,6 +159,22 @@ export function PricingSection() {
                 >
                   {plan.ctaLabel}
                 </Link>
+                <div className="mt-3 flex flex-wrap items-center gap-3 text-xs text-text-muted">
+                  <span>{t("fallback_label")}</span>
+                  <button
+                    type="button"
+                    onClick={() => handleCopyEmail(plan.key)}
+                    className="rounded-md border border-border px-2.5 py-1 text-text-secondary transition-colors hover:text-text-primary hover:border-teal/40"
+                  >
+                    {copiedPlanKey === plan.key ? t("fallback_copied") : t("fallback_copy")}
+                  </button>
+                  <Link
+                    href="/contact"
+                    className="rounded-md border border-border px-2.5 py-1 text-text-secondary transition-colors hover:text-text-primary hover:border-teal/40"
+                  >
+                    {t("fallback_open_contact")}
+                  </Link>
+                </div>
               </div>
             </motion.article>
           ))}

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "ContinuumIQ — AI Customer Exit Risk Intelligence Platform",
+    "title": "ContinuumIQ - AI Customer Exit Risk Intelligence Platform",
     "description": "Predict customer churn 90 days in advance with 95% accuracy. Protect revenue, defend market share, and strengthen relationships with explainable AI."
   },
   "nav": {
@@ -19,7 +19,7 @@
   "hero": {
     "badge": "Enterprise Intelligence Platform",
     "title": "Predict Customer Exit Risk Before It's Too Late",
-    "subtitle": "ContinuumIQ gives enterprises 90 days of advance warning with 95% prediction accuracy — turning silent attrition into protected revenue.",
+    "subtitle": "ContinuumIQ gives enterprises 90 days of advance warning with 95% prediction accuracy - turning silent attrition into protected revenue.",
     "cta1": "Book a Demo",
     "cta2": "Explore Platform",
     "stat1_value": "95%",
@@ -33,7 +33,7 @@
   "crisis": {
     "badge": "Strategic Context",
     "title": "The Customer Attrition Crisis",
-    "subtitle": "Customer attrition remains a critical blind spot for corporate leadership — representing substantial unmanaged financial exposure.",
+    "subtitle": "Customer attrition remains a critical blind spot for corporate leadership - representing substantial unmanaged financial exposure.",
     "stat1_value": "5-7×",
     "stat1_label": "Cost to acquire vs. retain",
     "stat2_value": "15-25%",
@@ -41,7 +41,7 @@
     "stat3_value": "6-12 mo",
     "stat3_label": "Silent attrition window",
     "insight_title": "Critical Insight",
-    "insight_text": "Most corporations identify at-risk customers only after visible signals emerge — by then, intervention is often too late.",
+    "insight_text": "Most corporations identify at-risk customers only after visible signals emerge - by then, intervention is often too late.",
     "imperative_title": "Strategic Imperative",
     "imperative_text": "Organizations must move from reactive retention to predictive risk intelligence."
   },
@@ -51,13 +51,13 @@
     "subtitle": "Comparative analysis of customer attrition rates and retention challenges by industry.",
     "telecom": "Telecommunications",
     "telecom_rate": "21-25%",
-    "telecom_note": "Highest churn sector — 1 in 5 new customers forecasts negative lifetime value.",
+    "telecom_note": "Highest churn sector - 1 in 5 new customers forecasts negative lifetime value.",
     "finance": "Financial Services",
     "finance_rate": "15-26%",
     "finance_note": "Wide variance by segment with significant retention opportunity.",
     "saas": "SaaS",
     "saas_rate": "13.2%",
-    "saas_note": "Benchmark for subscription models — churn directly impacts valuation.",
+    "saas_note": "Benchmark for subscription models - churn directly impacts valuation.",
     "retail": "Retail",
     "retail_rate": "24-25%",
     "retail_note": "Highly competitive landscape with low switching costs."
@@ -67,14 +67,14 @@
     "title": "The Enterprise Capability Gap",
     "subtitle": "Despite sustained investment, organizations identify customer exit risk too late for effective intervention.",
     "existing_title": "What Corporations Have",
-    "existing_1": "CRM Platforms — managing millions of records",
-    "existing_2": "Analytics Teams — data science and BI capabilities",
-    "existing_3": "Digital Infrastructure — online platforms and touchpoints",
+    "existing_1": "CRM Platforms - managing millions of records",
+    "existing_2": "Analytics Teams - data science and BI capabilities",
+    "existing_3": "Digital Infrastructure - online platforms and touchpoints",
     "missing_title": "What's Missing",
-    "missing_1": "Fragmented Data — silos prevent holistic view",
-    "missing_2": "Limited Explainability — black-box outputs",
-    "missing_3": "Weak Financial Linkage — no revenue impact connection",
-    "conclusion": "Explainable AI that connects behavioral signals to financial impact — current systems identify what but cannot explain why."
+    "missing_1": "Fragmented Data - silos prevent holistic view",
+    "missing_2": "Limited Explainability - black-box outputs",
+    "missing_3": "Weak Financial Linkage - no revenue impact connection",
+    "conclusion": "Explainable AI that connects behavioral signals to financial impact - current systems identify what but cannot explain why."
   },
   "platform": {
     "badge": "Platform Capabilities",
@@ -93,11 +93,11 @@
     "capability6_title": "Regulatory Compliance",
     "capability6_text": "Explainable models that satisfy governance and regulatory scrutiny.",
     "stack_title": "The Five-Core Intelligence Stack",
-    "stack1": "Churn Prediction — 90% accuracy",
-    "stack2": "User Segmentation — Dynamic LTV scoring",
-    "stack3": "Incentive Optimization — 20%+ efficiency gain",
-    "stack4": "Courier Intelligence — Retention scoring",
-    "stack5": "Merchant Intelligence — Order decline forecasting"
+    "stack1": "Churn Prediction - 90% accuracy",
+    "stack2": "User Segmentation - Dynamic LTV scoring",
+    "stack3": "Incentive Optimization - 20%+ efficiency gain",
+    "stack4": "Courier Intelligence - Retention scoring",
+    "stack5": "Merchant Intelligence - Order decline forecasting"
   },
   "value": {
     "badge": "Financial Impact",
@@ -162,6 +162,11 @@
     "enterprise_f4": "SLA & compliance package",
     "enterprise_f5": "On-premise option",
     "enterprise_cta": "Talk to Sales",
+    "contact_cta": "Contact Us",
+    "fallback_label": "No email app?",
+    "fallback_copy": "Copy email",
+    "fallback_copied": "Email copied",
+    "fallback_open_contact": "Open contact page",
     "cta": "Get Started"
   },
   "security": {
@@ -171,7 +176,7 @@
     "feature1_title": "GDPR & Privacy",
     "feature1_text": "Full compliance framework for global data protection regulations.",
     "feature2_title": "Data Residency",
-    "feature2_text": "Data stored within your region — including Saudi Arabia residency options.",
+    "feature2_text": "Data stored within your region - including Saudi Arabia residency options.",
     "feature3_title": "Encryption",
     "feature3_text": "TLS 1.3 encryption for all data in transit and at rest.",
     "feature4_title": "Access Control",
@@ -192,7 +197,7 @@
     "mission_title": "Our Mission",
     "mission_text": "To eliminate the $1.6 trillion in annual global revenue lost to preventable customer attrition through explainable, actionable AI.",
     "vision_title": "Our Vision",
-    "vision_text": "A world where no business loses a customer they could have saved — where predictive intelligence is a standard enterprise capability.",
+    "vision_text": "A world where no business loses a customer they could have saved - where predictive intelligence is a standard enterprise capability.",
     "moat1_title": "EBITDA Predictability",
     "moat1_text": "95% accuracy in financial stability forecasting.",
     "moat2_title": "Valuation Narrative",

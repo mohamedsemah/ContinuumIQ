@@ -1,6 +1,6 @@
 # ContinuumIQ Marketing Website
 
-AI Customer Exit Risk Intelligence Platform — marketing website built with Next.js, deployed on Vercel.
+AI Customer Exit Risk Intelligence Platform - marketing website built with Next.js, deployed on Vercel.
 
 ## Tech Stack
 
