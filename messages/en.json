@@ -164,6 +164,7 @@
     "enterprise_f5": "On,premise option",
     "enterprise_cta": "Talk to Sales",
     "contact_cta": "Contact Us",
+    "request_quotation": "Request Quotation",
     "fallback_label": "No email app?",
     "fallback_copy": "Copy email",
     "fallback_copied": "Email copied",

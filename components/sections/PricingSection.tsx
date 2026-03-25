@@ -38,6 +38,7 @@ export function PricingSection() {
   const [mounted, setMounted] = useState(false);
   const [copiedPlanKey, setCopiedPlanKey] = useState<string | null>(null);
   const contactCta = t("contact_cta");
+  const requestQuotationCta = t("request_quotation");
   const contactEmail = "info@newvisiongroupus.com";
 
   useEffect(() => setMounted(true), []);
@@ -79,6 +80,7 @@ export function PricingSection() {
     {
       key: "enterprise",
       name: t("enterprise_name"),
+      topCtaLabel: requestQuotationCta,
       description: t("enterprise_desc"),
       features: [t("enterprise_f1"), t("enterprise_f2"), t("enterprise_f3"), t("enterprise_f4"), t("enterprise_f5")],
       highlighted: false,
@@ -139,7 +141,7 @@ export function PricingSection() {
                       className: "w-full sm:w-auto",
                     })}
                   >
-                    {contactCta}
+                    {plan.topCtaLabel ?? contactCta}
                   </Link>
                 </div>
               )}
