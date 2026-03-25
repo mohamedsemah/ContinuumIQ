@@ -2,7 +2,6 @@ import { setRequestLocale } from "next-intl/server";
 import { PlatformSection } from "@/components/sections/PlatformSection";
 import { GapSection } from "@/components/sections/GapSection";
 import { CTASection } from "@/components/sections/CTASection";
-import { PlatformHero } from "@/components/sections/PlatformHero";
 
 export default async function PlatformPage({
   params,
@@ -14,7 +13,6 @@ export default async function PlatformPage({
 
   return (
     <>
-      <PlatformHero />
       <PlatformSection />
       <GapSection />
       <CTASection />

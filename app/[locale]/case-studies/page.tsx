@@ -1,7 +1,6 @@
 import { setRequestLocale } from "next-intl/server";
 import { CaseStudySection } from "@/components/sections/CaseStudySection";
 import { CTASection } from "@/components/sections/CTASection";
-import { CaseStudiesHero } from "@/components/sections/CaseStudiesHero";
 
 export default async function CaseStudiesPage({
   params,
@@ -13,7 +12,6 @@ export default async function CaseStudiesPage({
 
   return (
     <>
-      <CaseStudiesHero />
       <CaseStudySection />
       <CTASection />
     </>
