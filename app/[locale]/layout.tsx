@@ -9,8 +9,10 @@ import {
   JetBrains_Mono,
   IBM_Plex_Sans_Arabic,
 } from "next/font/google";
+import Script from "next/script";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { stripExtensionAttrsScript } from "@/lib/stripExtensionAttrsScript";
 import { cn } from "@/lib/utils";
 import "../globals.css";
 
@@ -96,8 +98,14 @@ export default async function LocaleLayout({
   const dir = locale === "ar" ? "rtl" : "ltr";
 
   return (
-    <html lang={locale} dir={dir} suppressHydrationWarning>
+    <html
+      lang={locale}
+      dir={dir}
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
       <body
+        suppressHydrationWarning
         className={cn(
           plusJakarta.variable,
           inter.variable,
@@ -106,6 +114,11 @@ export default async function LocaleLayout({
           "min-h-screen bg-background text-text-primary antialiased"
         )}
       >
+        <Script
+          id="strip-extension-attrs"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: stripExtensionAttrsScript }}
+        />
         <NextIntlClientProvider messages={messages}>
           <Navbar />
           <main className="pt-16">{children}</main>
