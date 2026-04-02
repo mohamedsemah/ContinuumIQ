@@ -76,6 +76,9 @@ export async function generateMetadata({
       index: true,
       follow: true,
     },
+    icons: {
+      icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    },
   };
 }
 

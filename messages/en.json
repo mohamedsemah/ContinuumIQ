@@ -226,6 +226,12 @@
     "industry_placeholder": "Select industry",
     "message_label": "Message",
     "submit": "Book a Demo",
+    "submitting": "Sending…",
+    "success": "Thank you. We received your request and will be in touch shortly.",
+    "error_generic": "Something went wrong. Please try again or use your email app below.",
+    "error_config": "Our email service is not configured. Use the button below to open your email app.",
+    "mailto_help": "Prefer your own email client?",
+    "mailto_button": "Compose in email app",
     "email": "info@newvisiongroupus.com",
     "website": "www.continuumiq.io"
   },
