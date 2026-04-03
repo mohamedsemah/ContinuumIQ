@@ -51,7 +51,7 @@ Push to a Git repository and connect to Vercel for automatic deployments.
 
 | Variable | Description |
 |----------|-------------|
-| `RESEND_API_KEY` | [Resend](https://resend.com) API key — required for the contact form to send email from the server |
+| `RESEND_API_KEY` | [Resend](https://resend.com) API key - required for the contact form to send email from the server |
 | `RESEND_FROM_EMAIL` | Verified sender, e.g. `ContinuumIQ <mail@yourdomain.com>` (Resend onboarding domain works for tests) |
 | `CONTACT_TO_EMAIL` | Inbox that receives demo requests. With Resend’s default **testing** sender (`onboarding@resend.dev`), this must be the **same email as your Resend account** until you [verify a domain](https://resend.com/domains) and use a `yourdomain.com` `from` address |
 | `NEXT_PUBLIC_GA_ID` | Google Analytics 4 Measurement ID (optional) |

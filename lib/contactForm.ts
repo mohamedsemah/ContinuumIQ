@@ -93,7 +93,7 @@ function escapeHtml(s: string): string {
 
 export function formatContactEmailText(data: ContactFormPayload): string {
   const lines = [
-    "New demo request — ContinuumIQ website",
+    "New demo request - ContinuumIQ website",
     "",
     `Name: ${data.name}`,
     `Email: ${data.email}`,
@@ -118,7 +118,7 @@ export function formatContactEmailHtml(data: ContactFormPayload): string {
   return `<!DOCTYPE html>
 <html>
 <body style="font-family:system-ui,Segoe UI,sans-serif;font-size:15px;line-height:1.5;color:#0f172a;">
-  <p style="margin:0 0 16px;"><strong>New demo request</strong> — ContinuumIQ website</p>
+  <p style="margin:0 0 16px;"><strong>New demo request</strong> - ContinuumIQ website</p>
   <table style="border-collapse:collapse;margin-bottom:20px;">
     ${row("Name", data.name)}
     ${row("Email", data.email)}
@@ -142,7 +142,7 @@ export function buildDemoMailtoHref(params: {
   industry: IndustryKey;
   message: string;
 }): string {
-  const subject = `Demo request — ${params.company}`;
+  const subject = `Demo request - ${params.company}`;
   const body = formatContactEmailText({
     name: params.name,
     email: params.email,

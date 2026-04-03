@@ -19,7 +19,7 @@ const fadeUp = {
 } as any;
 
 function parseRateMidpoint(rate: string): number {
-  const normalized = rate.replace("%", "").replace(/[–—-]/g, ",").replace(/،/g, ",").trim();
+  const normalized = rate.replace("%", "").replace(/[–-]/g, ",").replace(/،/g, ",").trim();
   const parts = normalized
     .split(",")
     .map((part) => part.trim())

@@ -10,7 +10,7 @@ import {
 } from "@/lib/contactForm";
 
 // Load `.env.local` from disk with dotenv (reliable in API routes). If the file is open in an
-// editor but not saved, it can be 0 bytes on disk — Next will then see no variables.
+// editor but not saved, it can be 0 bytes on disk - Next will then see no variables.
 (function loadContactEnvFile() {
   const candidates = [
     path.resolve(process.cwd(), ".env.local"),
@@ -81,7 +81,7 @@ export async function POST(request: Request) {
     from,
     to: [to.trim()],
     replyTo: data.email,
-    subject: `Demo request — ${data.company}`,
+    subject: `Demo request - ${data.company}`,
     text,
     html,
   });
@@ -96,7 +96,7 @@ export async function POST(request: Request) {
       msg.includes("only send testing emails") || msg.includes("verify a domain");
     if (isTestingRecipientLimit) {
       console.warn(
-        "[contact] Resend is in testing mode with onboarding@resend.dev: CONTACT_TO_EMAIL must be the same address as your Resend login (see error above), OR verify a domain at https://resend.com/domains and set RESEND_FROM_EMAIL to an address on that domain—then you can send to any recipient (e.g. Gmail). Same applies on Vercel after you deploy."
+        "[contact] Resend is in testing mode with onboarding@resend.dev: CONTACT_TO_EMAIL must be the same address as your Resend login (see error above), OR verify a domain at https://resend.com/domains and set RESEND_FROM_EMAIL to an address on that domain, then you can send to any recipient (e.g. Gmail). Same applies on Vercel after you deploy."
       );
     }
     return NextResponse.json({ error: "Failed to send message. Please try again later." }, { status: 502 });
