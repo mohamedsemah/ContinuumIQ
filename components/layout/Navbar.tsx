@@ -200,12 +200,6 @@ export function Navbar() {
             >
               {t("bookDemo")}
             </Link>
-            <Link
-              href="/pricing"
-              className={buttonVariants({ variant: "primary", size: "sm" })}
-            >
-              {t("getStarted")}
-            </Link>
           </div>
 
           {/* Mobile hamburger */}
@@ -344,12 +338,6 @@ export function Navbar() {
                   className={buttonVariants({ variant: "secondary", size: "md", className: "w-full" })}
                 >
                   {t("bookDemo")}
-                </Link>
-                <Link
-                  href="/pricing"
-                  className={buttonVariants({ variant: "primary", size: "md", className: "w-full" })}
-                >
-                  {t("getStarted")}
                 </Link>
               </div>
             </motion.div>
